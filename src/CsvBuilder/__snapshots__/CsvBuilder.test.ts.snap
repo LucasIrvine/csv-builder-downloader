@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CsvBuilder .addCell should produce the same file, given the same input 1`] = `"Is this your homework larry,"`;
+
+exports[`CsvBuilder .addRow should produce the same file, given the same \`array\` input 1`] = `
+"Is this your homework larry,1000000.713,Can you not,$1000000.713,01/04/85,12-05-1983,abcXYZ123..@@$$__--:://
+"
+`;
+
+exports[`CsvBuilder .addRow should produce the same file, given the same \`string\` input 1`] = `
+"Is this your homework larry?
+"
+`;
+
+exports[`CsvBuilder .addRowArray should produce the same file, given the same input 1`] = `
+"Is this your homework larry,1000000.713,Can you not,$1000000.713,01/04/85,12-05-1983,abcXYZ123..@@$$__--:://
+"
+`;
+
+exports[`CsvBuilder .addRows should produce the same file, given the same input 1`] = `
+"Is this your homework larry,1000000.713,Can you not,$1000000.713,01/04/85,12-05-1983,abcXYZ123..@@$$__--:://
+Is this your homework larry,1000000.713,Can you not,$1000000.713,01/04/85,12-05-1983,abcXYZ123..@@$$__--:://
+Is this your homework larry,1000000.713,Can you not,$1000000.713,01/04/85,12-05-1983,abcXYZ123..@@$$__--:://
+"
+`;
+
+exports[`CsvBuilder .appendToFile should append to current file string 1`] = `"Is this your homework larry?Can you not"`;
+
+exports[`CsvBuilder .getEncodedFile should produce the same file, given the same input 1`] = `"data:text/csv;charset=utf-8,Is%20this%20your%20homework%20larry,"`;
+
+exports[`CsvBuilder .sanitize should allow only characters in the default regex (alphanumeric, dates) 1`] = `"abcXYZ123..@@$$__--:://"`;
