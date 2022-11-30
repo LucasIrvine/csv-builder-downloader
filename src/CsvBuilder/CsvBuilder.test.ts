@@ -2,18 +2,15 @@ import CsvBuilder from './index';
 
 import { COMMA, CSV_BUILDER_CONFIG_SIMPLE, CSV_ENCODING_TYPE, EMPTY_STRING, NEW_LINE } from '../constants';
 
-// Keep in file so it doesnt get packaged in prod build with other constants
-const CHARS = `abcXYZ123,,..!!@@##$$%%^^&&**(())__++--==~~[[]]\\{{}}||;;''::""//<<>>??¡™£¢∞§¶•ªº–≠œ∑´®†¥¨ˆøπ“‘«åß∂ƒ©˙∆˚¬…æ≈ç√∫˜µ≤≥÷`;
-const DEFAULT_ALLOWED_CHARS = 'abcXYZ123..@@$$__--:://';
-const STRING_INPUT_1 = 'Is this your homework larry?';
-const STRING_INPUT_2 = 'Can you not';
-const ENCODED_STRING_INPUT = encodeURI(STRING_INPUT_2);
-const NUMERIC_INPUT = 1000000.713;
-const FORMATTED_NUMERIC_INPUT = '$1,000,000.713';
-const DATE_1 = '01/04/85';
-const DATE_2 = '12-05-1983';
-const TEST_ROW = [STRING_INPUT_1, NUMERIC_INPUT, STRING_INPUT_2, FORMATTED_NUMERIC_INPUT, DATE_1, DATE_2, CHARS];
-const TEST_ROWS_ARRAY = [TEST_ROW, TEST_ROW, TEST_ROW];
+import {
+  CHARS,
+  DEFAULT_ALLOWED_CHARS,
+  STRING_INPUT_1,
+  STRING_INPUT_2,
+  ENCODED_STRING_INPUT,
+  TEST_ROW,
+  TEST_ROWS_ARRAY,
+} from '../constants/testingMocks';
 
 describe('CsvBuilder', () => {
   let csvBuilder: CsvBuilder;
@@ -163,5 +160,19 @@ describe('CsvBuilder', () => {
   // TODO
   describe('.addSection', () => {
     it('', () => {});
+  });
+
+  describe('.download', () => {
+    it('should call the getEncodedFile and getFilename functions', () => {
+      global.URL.createObjectURL = jest.fn();
+      csvBuilder.getEncodedFile = jest.fn();
+      csvBuilder.getFilename = jest.fn();
+
+      csvBuilder.download();
+
+      expect(global.URL.createObjectURL).toHaveBeenCalledTimes(1);
+      expect(csvBuilder.getEncodedFile).toHaveBeenCalledTimes(1);
+      expect(csvBuilder.getFilename).toHaveBeenCalledTimes(1);
+    });
   });
 });

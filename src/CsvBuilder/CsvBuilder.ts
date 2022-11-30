@@ -1,3 +1,4 @@
+import CsvDownloader from '../CsvDownloader';
 import {
   COMMA,
   CSV_ENCODING_TYPE,
@@ -161,5 +162,11 @@ export default class CsvBuilder {
     }
 
     return `${this.filename}${this.fileSuffix}`;
+  }
+
+  download() {
+    new CsvDownloader(this.getEncodedFile(), this.getFilename()).downloadBlob();
+
+    return this;
   }
 }
