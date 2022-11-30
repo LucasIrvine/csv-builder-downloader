@@ -14,3 +14,6 @@ export const TEST_ROW = [STRING_INPUT_1, NUMERIC_INPUT, STRING_INPUT_2, FORMATTE
 export const TEST_ROWS_ARRAY = [TEST_ROW, TEST_ROW, TEST_ROW];
 export const ENCODED_FILE = `${CSV_ENCODING_TYPE}${ENCODED_STRING_INPUT}${COMMA}`;
 export const MOCK_FILENAME = 'MyCsvDownload';
+export const MOCK_FUNCTION = () => MOCK_FILENAME;
+export const MOCK_BOOLEAN = true;
+export const MOCK_OBJECT = { test: 'object' };

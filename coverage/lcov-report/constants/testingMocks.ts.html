@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for utils/index.ts</title>
+    <title>Code coverage report for constants/testingMocks.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">utils</a> index.ts</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">constants</a> testingMocks.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">94.73% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/21</span>
+                <span class='fraction'>18/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/14</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -82,74 +82,44 @@
 <a name='L17'></a><a href='#L17'>17</a>
 <a name='L18'></a><a href='#L18'>18</a>
 <a name='L19'></a><a href='#L19'>19</a>
-<a name='L20'></a><a href='#L20'>20</a>
-<a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">8x</span>
+<a name='L20'></a><a href='#L20'>20</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">16x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Type checking
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { COMMA, CSV_ENCODING_TYPE } from '../constants';
 &nbsp;
-export const isRegex = (val: any) =&gt; {
-  return !!val &amp;&amp; Object.prototype.toString.call(val) === `[object RegExp]`;
-};
-&nbsp;
-export const isString = (val: any) =&gt; {
-  return !!val &amp;&amp; typeof val === 'string';
-};
-&nbsp;
-export const isNumber = (val: any) =&gt; {
-  return !!val &amp;&amp; typeof val === 'number';
-};
-&nbsp;
-export const isFunction = (val: any) =&gt; {
-  return !!val &amp;&amp; typeof val === 'function';
-};
-&nbsp;
-export const isArray = (val: any) =&gt; {
-  return !!val &amp;&amp; Array.isArray(val);
-};
-&nbsp;
-export const isObject = (val: any) =&gt; {
-  return !!val &amp;&amp; val.toString() === '[object Object]';
-};
-&nbsp;
-export const isBoolean = (val: any) =&gt; {
-  return !!val &amp;&amp; typeof val == 'boolean';
-};
+// These are excluded from the ts build
+export const CHARS = `abcXYZ123,,..!!@@##$$%%^^&amp;&amp;**(())__++--==~~[[]]\\{{}}||;;''::""//&lt;&lt;&gt;&gt;??¡™£¢∞§¶•ªº–≠œ∑´®†¥¨ˆøπ“‘«åß∂ƒ©˙∆˚¬…æ≈ç√∫˜µ≤≥÷`;
+export const DEFAULT_ALLOWED_CHARS = 'abcXYZ123..@@$$__--:://';
+export const STRING_INPUT_1 = 'Is this your homework larry?';
+export const STRING_INPUT_2 = 'Can you not';
+export const ENCODED_STRING_INPUT = encodeURI(STRING_INPUT_2);
+export const NUMERIC_INPUT = 1000000.713;
+export const FORMATTED_NUMERIC_INPUT = '$1,000,000.713';
+export const DATE_1 = '01/04/85';
+export const DATE_2 = '12-05-1983';
+export const TEST_ROW = [STRING_INPUT_1, NUMERIC_INPUT, STRING_INPUT_2, FORMATTED_NUMERIC_INPUT, DATE_1, DATE_2, CHARS];
+export const TEST_ROWS_ARRAY = [TEST_ROW, TEST_ROW, TEST_ROW];
+export const ENCODED_FILE = `${CSV_ENCODING_TYPE}${ENCODED_STRING_INPUT}${COMMA}`;
+export const MOCK_FILENAME = 'MyCsvDownload';
+export const MOCK_FUNCTION = <span class="fstat-no" title="function not covered" >() =&gt; <span class="cstat-no" title="statement not covered" >M</span>OCK_FILENAME;</span>
+export const MOCK_BOOLEAN = true;
+export const MOCK_OBJECT = { test: 'object' };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
