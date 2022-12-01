@@ -7,7 +7,7 @@ import {
   MOCK_BOOLEAN,
   MOCK_FUNCTION,
   MOCK_OBJECT,
-} from '../constants/testingMocks';
+} from '../constants/testing';
 
 describe('utils', () => {
   // TODO
@@ -38,6 +38,11 @@ describe('utils', () => {
 
     it('should return false if a number is passed in', () => {
       expect(isRegex(MOCK_NUMBER)).toEqual(false);
+    });
+
+    it('should return false if a null value is passed in', () => {
+      // @ts-ignore: passing in the wrong type
+      expect(isBoolean(null)).toEqual(false);
     });
 
     it('should return false if no value is passed in', () => {
@@ -75,6 +80,11 @@ describe('utils', () => {
       expect(isString(MOCK_NUMBER)).toEqual(false);
     });
 
+    it('should return false if a null value is passed in', () => {
+      // @ts-ignore: passing in the wrong type
+      expect(isBoolean(null)).toEqual(false);
+    });
+
     it('should return false if no value is passed in', () => {
       // @ts-ignore: passing in the wrong type
       expect(isString()).toEqual(false);
@@ -108,6 +118,11 @@ describe('utils', () => {
 
     it('should return false if a function is passed in', () => {
       expect(isNumber(MOCK_FUNCTION)).toEqual(false);
+    });
+
+    it('should return false if a null value is passed in', () => {
+      // @ts-ignore: passing in the wrong type
+      expect(isBoolean(null)).toEqual(false);
     });
 
     it('should return false if no value is passed in', () => {
@@ -145,6 +160,11 @@ describe('utils', () => {
       expect(isFunction(MOCK_NUMBER)).toEqual(false);
     });
 
+    it('should return false if a null value is passed in', () => {
+      // @ts-ignore: passing in the wrong type
+      expect(isBoolean(null)).toEqual(false);
+    });
+
     it('should return false if no value is passed in', () => {
       // @ts-ignore: passing in the wrong type
       expect(isFunction()).toEqual(false);
@@ -178,6 +198,11 @@ describe('utils', () => {
 
     it('should return false if a number is passed in', () => {
       expect(isArray(MOCK_NUMBER)).toEqual(false);
+    });
+
+    it('should return false if a null value is passed in', () => {
+      // @ts-ignore: passing in the wrong type
+      expect(isBoolean(null)).toEqual(false);
     });
 
     it('should return false if no value is passed in', () => {
@@ -215,6 +240,11 @@ describe('utils', () => {
       expect(isObject(MOCK_NUMBER)).toEqual(false);
     });
 
+    it('should return false if a null value is passed in', () => {
+      // @ts-ignore: passing in the wrong type
+      expect(isBoolean(null)).toEqual(false);
+    });
+
     it('should return false if no value is passed in', () => {
       // @ts-ignore: passing in the wrong type
       expect(isObject()).toEqual(false);
@@ -248,6 +278,11 @@ describe('utils', () => {
 
     it('should return false if a number is passed in', () => {
       expect(isBoolean(MOCK_NUMBER)).toEqual(false);
+    });
+
+    it('should return false if a null value is passed in', () => {
+      // @ts-ignore: passing in the wrong type
+      expect(isBoolean(null)).toEqual(false);
     });
 
     it('should return false if no value is passed in', () => {

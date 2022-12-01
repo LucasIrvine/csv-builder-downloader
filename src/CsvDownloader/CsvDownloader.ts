@@ -1,3 +1,8 @@
+declare global {
+  interface Navigator {
+    msSaveBlob?: (blob: any, defaultName?: string) => boolean;
+  }
+}
 export default class CsvDownloader {
   encodedFile: string;
   filename: string;
@@ -20,34 +25,22 @@ export default class CsvDownloader {
   }
 
   download() {
-    const downloadLink = document.createElement('a');
-
-    downloadLink.href = this.encodedFile;
-    downloadLink.target = '_blank';
-    downloadLink.download = this.filename;
-    downloadLink.click();
-  }
-
-  downloadBlob() {
-    const filename = this.filename;
-    const csvBlob = this.getBlob();
-
     // Proprietary to IE window.navigator
     const nav = window.navigator as any;
 
     if (nav.msSaveBlob) {
-      nav.msSaveBlob(csvBlob, filename);
+      nav.msSaveBlob(this.getBlob(), this.filename);
 
       return;
     }
 
     // Non-IE
-    const downloadUrl = this.getBlobUrl(csvBlob);
+    const downloadUrl = this.getBlobUrl(this.getBlob());
     const tempLink = document.createElement('a');
 
     tempLink.style.display = 'none';
     tempLink.href = downloadUrl;
-    tempLink.setAttribute('download', filename);
+    tempLink.setAttribute('download', this.filename);
 
     if (typeof tempLink.download === 'undefined') {
       tempLink.setAttribute('target', '_blank');

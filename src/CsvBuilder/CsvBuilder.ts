@@ -10,6 +10,7 @@ import {
   REMOVE_COMMA_REGEX,
   ROW_ARRAY_TYPE,
   CELL_TYPE,
+  SECTION_TYPE,
 } from '../constants';
 
 import { isString, isArray, isNumber } from '../utils';
@@ -19,7 +20,6 @@ export default class CsvBuilder {
   file: string;
   fileSuffix: string;
   filename: string;
-  filenameFormatter: Function | boolean;
   includeTimeStamp: boolean;
   nonValueIndices: number[];
   sanitizeRegex: RegExp;
@@ -30,7 +30,6 @@ export default class CsvBuilder {
     file?: string;
     fileSuffix?: string;
     filename?: string;
-    filenameFormatter?: Function | boolean;
     includeTimeStamp?: boolean;
     nonValueIndices?: number[];
     sanitizeRegex?: RegExp;
@@ -41,7 +40,6 @@ export default class CsvBuilder {
       file = EMPTY_STRING,
       fileSuffix = DEFAULT_SUFFIX,
       filename = DEFAULT_FILENAME,
-      filenameFormatter = false,
       includeTimeStamp = true,
       nonValueIndices = [],
       sanitizeRegex = DEFAULT_REGEX,
@@ -52,7 +50,6 @@ export default class CsvBuilder {
     this.file = file;
     this.fileSuffix = fileSuffix;
     this.filename = filename;
-    this.filenameFormatter = filenameFormatter;
     this.includeTimeStamp = includeTimeStamp;
     this.nonValueIndices = nonValueIndices;
     this.sanitizeRegex = sanitizeRegex;
@@ -128,7 +125,7 @@ export default class CsvBuilder {
     return this;
   }
 
-  addSection(title: string, headers: ROW_ARRAY_TYPE, rows: ROW_ARRAY_TYPE[], newLines: number) {
+  addSection({ title, headers, rows, newLines }: SECTION_TYPE) {
     if (isString(title)) {
       this.addRow(title);
     }
@@ -151,12 +148,6 @@ export default class CsvBuilder {
   }
 
   getFilename() {
-    if (this.filenameFormatter && typeof this.filenameFormatter === 'function') {
-      const filename = this.filenameFormatter.call(this);
-
-      return (isString(filename) && filename) || DEFAULT_FILENAME;
-    }
-
     if (this.includeTimeStamp) {
       return `${this.filename}-${new Date().valueOf()}${this.fileSuffix}`;
     }
@@ -165,7 +156,7 @@ export default class CsvBuilder {
   }
 
   download() {
-    new CsvDownloader(this.getEncodedFile(), this.getFilename()).downloadBlob();
+    new CsvDownloader(this.getEncodedFile(), this.getFilename()).download();
 
     return this;
   }

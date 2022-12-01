@@ -25,5 +25,5 @@ export const isObject = (val: any) => {
 };
 
 export const isBoolean = (val: any) => {
-  return !!val && typeof val == 'boolean';
+  return typeof val == 'boolean';
 };

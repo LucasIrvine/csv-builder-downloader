@@ -7,5 +7,5 @@
     "strict": true,
   },
   "include": ["src"],
-  "exclude": ["node_modules", "**/*.test.ts", "src/constants/testingMocks.ts"]
+  "exclude": ["node_modules", "**/*.test.ts", "src/constants/testing.ts"]
 }

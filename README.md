@@ -1,5 +1,9 @@
 # csv-builder-downloader
 
+![Coverage statements](coverage/badge-statements.svg)
+![Coverage functions](coverage/badge-functions.svg)
+![Coverage lines](coverage/badge-lines.svg)
+
 ## A dependancy free JavaScript tool for composing and downloading csv files. Written in TypeScript.
 
 <br />

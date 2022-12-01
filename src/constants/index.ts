@@ -1,6 +1,7 @@
 // Types
 export type CELL_TYPE = string | number | boolean;
 export type ROW_ARRAY_TYPE = (string | number | boolean)[];
+export type SECTION_TYPE = { title: string; headers: ROW_ARRAY_TYPE; rows: ROW_ARRAY_TYPE[]; newLines: number };
 
 // Params
 export const MAX_NEW_LINES = 20;
@@ -31,8 +32,3 @@ export const ARRAY_DEFAULT = EMPTY_ARRAY;
 export const OBJECT_DEFAULT = EMPTY_OBJECT;
 export const NULL_DEFAULT = EMPTY_STRING;
 export const DEFAULT_REGEX = ALPHA_NUMERIC_DATE_REGEX;
-
-// Testing
-export const CSV_BUILDER_CONFIG_SIMPLE = {
-  filename: 'test-file-simple',
-};
