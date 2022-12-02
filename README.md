@@ -115,6 +115,10 @@ csvBuilder.download();
 
 <br />
 
+#### `changeRegex(passedRegex: RegExp)`
+
+<br />
+
 #### `.download()`
 
 <br />
