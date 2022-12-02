@@ -1,6 +1,6 @@
 import CsvBuilder from './index';
 
-import { COMMA, CSV_ENCODING_TYPE, EMPTY_STRING, NEW_LINE } from '../constants';
+import { COMMA, CSV_ENCODING_TYPE, EMPTY_STRING, NEW_LINE, DEFAULT_REGEX, REMOVE_COMMA_REGEX } from '../constants';
 
 import {
   CSV_BUILDER_CONFIG_SIMPLE,
@@ -97,6 +97,16 @@ describe('CsvBuilder', () => {
 
     it('should allow only remove commas if commaOnly set to truthy', () => {
       expect(csvBuilder.sanitize(COMMA_INPUT, true)).toEqual(NO_COMMA_INPUT);
+    });
+  });
+
+  describe('.changeRegex', () => {
+    it('should change the class instances sanitize regex whenever needed', () => {
+      csvBuilder.changeRegex(REMOVE_COMMA_REGEX);
+      expect(csvBuilder.sanitizeRegex).toEqual(REMOVE_COMMA_REGEX);
+
+      csvBuilder.changeRegex(DEFAULT_REGEX);
+      expect(csvBuilder.sanitizeRegex).toEqual(DEFAULT_REGEX);
     });
   });
 

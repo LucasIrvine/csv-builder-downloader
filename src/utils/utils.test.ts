@@ -17,26 +17,32 @@ describe('utils', () => {
     });
 
     it('should return false if an array is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isRegex(MOCK_ARRAY)).toEqual(false);
     });
 
     it('should return false if a boolean is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isRegex(MOCK_BOOLEAN)).toEqual(false);
     });
 
     it('should return false if an object is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isRegex(MOCK_OBJECT)).toEqual(false);
     });
 
     it('should return false if a string is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isRegex(MOCK_STRING)).toEqual(false);
     });
 
     it('should return false if a function is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isRegex(MOCK_FUNCTION)).toEqual(false);
     });
 
     it('should return false if a number is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isRegex(MOCK_NUMBER)).toEqual(false);
     });
 
@@ -65,14 +71,17 @@ describe('utils', () => {
     });
 
     it('should return false if an object is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isString(MOCK_OBJECT)).toEqual(false);
     });
 
     it('should return false if a Regex is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isString(ALPHA_NUMERIC_DATE_REGEX)).toEqual(false);
     });
 
     it('should return false if a function is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isString(MOCK_FUNCTION)).toEqual(false);
     });
 
@@ -97,26 +106,32 @@ describe('utils', () => {
     });
 
     it('should return false if a string is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isNumber(MOCK_STRING)).toEqual(false);
     });
 
     it('should return false if an array is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isNumber(MOCK_ARRAY)).toEqual(false);
     });
 
     it('should return false if a boolean is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isNumber(MOCK_BOOLEAN)).toEqual(false);
     });
 
     it('should return false if an object is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isNumber(MOCK_OBJECT)).toEqual(false);
     });
 
     it('should return false if a Regex is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isNumber(ALPHA_NUMERIC_DATE_REGEX)).toEqual(false);
     });
 
     it('should return false if a function is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isNumber(MOCK_FUNCTION)).toEqual(false);
     });
 
@@ -137,26 +152,32 @@ describe('utils', () => {
     });
 
     it('should return false if a string is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isFunction(MOCK_STRING)).toEqual(false);
     });
 
     it('should return false if an array is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isFunction(MOCK_ARRAY)).toEqual(false);
     });
 
     it('should return false if a boolean is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isFunction(MOCK_BOOLEAN)).toEqual(false);
     });
 
     it('should return false if an object is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isFunction(MOCK_OBJECT)).toEqual(false);
     });
 
     it('should return false if a Regex is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isFunction(ALPHA_NUMERIC_DATE_REGEX)).toEqual(false);
     });
 
     it('should return false if a number is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isFunction(MOCK_NUMBER)).toEqual(false);
     });
 
@@ -185,14 +206,17 @@ describe('utils', () => {
     });
 
     it('should return false if an object is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isArray(MOCK_OBJECT)).toEqual(false);
     });
 
     it('should return false if a Regex is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isArray(ALPHA_NUMERIC_DATE_REGEX)).toEqual(false);
     });
 
     it('should return false if a function is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isArray(MOCK_FUNCTION)).toEqual(false);
     });
 
@@ -257,26 +281,32 @@ describe('utils', () => {
     });
 
     it('should return false if a string is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isBoolean(MOCK_STRING)).toEqual(false);
     });
 
     it('should return false if a Regex is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isBoolean(ALPHA_NUMERIC_DATE_REGEX)).toEqual(false);
     });
 
     it('should return false if a function is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isBoolean(MOCK_FUNCTION)).toEqual(false);
     });
 
     it('should return false if an object is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isBoolean(MOCK_OBJECT)).toEqual(false);
     });
 
     it('should return false if an array is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isBoolean(MOCK_ARRAY)).toEqual(false);
     });
 
     it('should return false if a number is passed in', () => {
+      // @ts-ignore: passing in the wrong type
       expect(isBoolean(MOCK_NUMBER)).toEqual(false);
     });
 
