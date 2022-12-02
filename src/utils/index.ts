@@ -26,5 +26,5 @@ export const isObject = (val: {}) => {
 };
 
 export const isBoolean = (val: boolean) => {
-  return typeof val == 'boolean';
+  return typeof val === 'boolean';
 };
