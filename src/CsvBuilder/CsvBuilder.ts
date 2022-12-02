@@ -67,7 +67,9 @@ export default class CsvBuilder {
 
   appendToFile(val: CELL_TYPE, newLine?: boolean) {
     this.file += val;
-    newLine && this.addNewLine();
+    if (newLine) {
+      this.addNewLine();
+    }
   }
 
   addCell(val: CELL_TYPE, sanitize: boolean = this.sanitizeValues) {
@@ -91,7 +93,9 @@ export default class CsvBuilder {
   }
 
   addRows(rows: ROW_ARRAY_TYPE[]) {
-    isArray(rows) && rows.forEach((row) => this.addRow(row));
+    if (isArray(rows)) {
+      rows.forEach((row) => this.addRow(row));
+    }
 
     return this;
   }

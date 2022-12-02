@@ -8,22 +8,21 @@
 
 <br />
 
-### Compose a csv file with easy to understand chainable syntax that matches the structure of your data model.
+### Simple Usage
 
-<br />
-
-### Simple Usage - Create and Download a .csv File
-
-This is will sanitize the values and download a file: csv-download-<timestamp>.csv
+This is will sanitize the values and download a file: `csv-download-<timestamp>.csv`
 
 ```
-//
 const yourData = [[...headers][...row1][...row2]];
 
 new CsvBuilder().addRows(yourData).download();
 ```
 
-#### Advanced Usage - Pass in configuration and make usage match your data model more closely.
+<br />
+
+### Advanced Usage
+
+Pass in configuration and make usage match your data model more closely.
 
 ```
 const {
