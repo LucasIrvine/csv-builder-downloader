@@ -2,7 +2,16 @@
 export type CELL_TYPE = string | number | boolean;
 export type ROW_ARRAY_TYPE = (string | number | boolean)[];
 export type SECTION_TYPE = { title: string; headers: ROW_ARRAY_TYPE; rows: ROW_ARRAY_TYPE[]; newLines: number };
-
+export type CSV_BUILDER_CONFIG_TYPE = {
+  encodingType?: string;
+  file?: string;
+  fileSuffix?: string;
+  filename?: string;
+  includeTimeStamp?: boolean;
+  nonValueIndices?: number[];
+  sanitizeRegex?: RegExp;
+  sanitizeValues?: boolean;
+};
 // Params
 export const MAX_NEW_LINES = 20;
 

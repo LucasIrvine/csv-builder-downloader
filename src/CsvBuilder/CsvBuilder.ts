@@ -11,9 +11,11 @@ import {
   ROW_ARRAY_TYPE,
   CELL_TYPE,
   SECTION_TYPE,
+  CSV_BUILDER_CONFIG_TYPE,
+  EMPTY_ARRAY,
 } from '../constants';
 
-import { isString, isArray, isNumber } from '../utils';
+import { isString, isArray, isNumber, isBoolean } from '../utils';
 
 export default class CsvBuilder {
   encodingType: string;
@@ -25,39 +27,34 @@ export default class CsvBuilder {
   sanitizeRegex: RegExp;
   sanitizeValues: boolean;
 
-  constructor(fileConfig: {
-    encodingType?: string;
-    file?: string;
-    fileSuffix?: string;
-    filename?: string;
-    includeTimeStamp?: boolean;
-    nonValueIndices?: number[];
-    sanitizeRegex?: RegExp;
-    sanitizeValues?: boolean;
-  }) {
-    const {
-      encodingType = CSV_ENCODING_TYPE,
-      file = EMPTY_STRING,
-      fileSuffix = DEFAULT_SUFFIX,
-      filename = DEFAULT_FILENAME,
-      includeTimeStamp = true,
-      nonValueIndices = [],
-      sanitizeRegex = DEFAULT_REGEX,
-      sanitizeValues = true,
-    } = fileConfig;
-
+  constructor({
+    encodingType = CSV_ENCODING_TYPE,
+    file = EMPTY_STRING,
+    fileSuffix = DEFAULT_SUFFIX,
+    filename = DEFAULT_FILENAME,
+    includeTimeStamp = true,
+    nonValueIndices = EMPTY_ARRAY,
+    sanitizeRegex = DEFAULT_REGEX,
+    sanitizeValues = true,
+  }: CSV_BUILDER_CONFIG_TYPE) {
     this.encodingType = encodingType;
     this.file = file;
     this.fileSuffix = fileSuffix;
     this.filename = filename;
     this.includeTimeStamp = includeTimeStamp;
-    this.nonValueIndices = nonValueIndices;
-    this.sanitizeRegex = sanitizeRegex;
+    this.nonValueIndices = nonValueIndices || [];
+    this.sanitizeRegex = sanitizeRegex || DEFAULT_REGEX;
     this.sanitizeValues = sanitizeValues;
   }
 
   static removeCommas(val: string) {
     return val?.toString().replace(REMOVE_COMMA_REGEX, EMPTY_STRING) || EMPTY_STRING;
+  }
+
+  changeRegex(passedRegex: RegExp) {
+    this.sanitizeRegex = passedRegex;
+
+    return this;
   }
 
   sanitize(val: CELL_TYPE, commaOnly?: boolean) {
@@ -73,7 +70,7 @@ export default class CsvBuilder {
     newLine && this.addNewLine();
   }
 
-  addCell(val: string, sanitize: boolean = this.sanitizeValues) {
+  addCell(val: CELL_TYPE, sanitize: boolean = this.sanitizeValues) {
     const value = `${sanitize ? this.sanitize(val) : val}${COMMA}`;
 
     this.appendToFile(value);
@@ -81,13 +78,13 @@ export default class CsvBuilder {
     return this;
   }
 
-  addRow(val: CELL_TYPE | ROW_ARRAY_TYPE, bypassSanitize?: boolean) {
+  addRow(val: CELL_TYPE | ROW_ARRAY_TYPE, sanitize?: boolean) {
     if (isString(val)) {
       this.appendToFile(val as string, true);
     }
 
     if (isArray(val)) {
-      this.addRowArray(val as ROW_ARRAY_TYPE, bypassSanitize);
+      this.addRowArray(val as ROW_ARRAY_TYPE, sanitize);
     }
 
     return this;
@@ -99,12 +96,12 @@ export default class CsvBuilder {
     return this;
   }
 
-  addRowArray(rowArray: ROW_ARRAY_TYPE, bypassSanitize?: boolean) {
+  addRowArray(rowArray: ROW_ARRAY_TYPE, sanitize?: boolean) {
     if (!isArray(rowArray)) {
       return;
     }
 
-    if (this.sanitizeValues && !bypassSanitize) {
+    if (this.sanitizeValues && !sanitize) {
       rowArray = rowArray.map((cell: CELL_TYPE, i: number) => {
         return this.nonValueIndices.indexOf(i) > -1 ? this.sanitize(cell, true) : this.sanitize(cell);
       });
