@@ -12,7 +12,7 @@
 
 This is will sanitize the values and download a file: `csv-download-<timestamp>.csv`
 
-```
+```javascript
 const yourData = [[...headers][...row1][...row2]];
 
 new CsvBuilder().addRows(yourData).download();
@@ -24,7 +24,7 @@ new CsvBuilder().addRows(yourData).download();
 
 Pass in configuration and make usage match your data model more closely.
 
-```
+```javascript
 const {
     defaultFileHeading,
     yesterdayFileHeaders,
@@ -70,55 +70,82 @@ csvBuilder.download();
 
 ```
 
-## CsVBuilder
+## CsvBuilder
 
 ### Configuration
 
 | Option           | Default                       | Type    |
 | ---------------- | ----------------------------- | ------- |
 | encodingType     | `data:text/csv;charset=utf-8` | String  |
-| file             | ''                            | String  |
+| file             | `''`                          | String  |
 | fileSuffix       | `.csv`                        | String  |
 | filename         | `csv-download`                | String  |
 | includeTimeStamp | `true`                        | Boolean |
 | nonValueIndices  | `[]`                          | Array   |
 | sanitizeRegex    | `/[^a-zA-Z0-9:\./_\-@$ ]/g`   | RegExp  |
-| sanitizeValues   | true,                         | Boolean |
+| sanitizeValues   | `true`                        | Boolean |
 
 ### Methods
 
-#### `.addCell(val: CELL_TYPE, sanitize: boolean = true)`
+```javascript
+.addCell(val: CELL_TYPE, sanitize: boolean = true)
+```
+
+```javascript
+.addRow(val: CELL_TYPE | ROW_ARRAY_TYPE, sanitize?: boolean)
+```
+
+```javascript
+.addRows(rows: ROW_ARRAY_TYPE[])
+```
+
+```javascript
+.addNewLine(count: number = 1)
+```
+
+```javascript
+.addSection({ title, headers, rows, newLines }: SECTION_TYPE)
+```
+
+```javascript
+.getEncodedFile()
+```
+
+```javascript
+.getFilename()
+```
+
+```javascript
+.changeRegex(passedRegex: RegExp)
+```
+
+```javascript
+.download()
+```
 
 <br />
 
-#### `.addRow(val: CELL_TYPE | ROW_ARRAY_TYPE, sanitize?: boolean)`
+## CsvDownloader
 
-<br />
+If using the CsvBuilder, you do not need to separately use the CsvDownloader, but it can be used on its own if needed.
 
-#### `.addRows(rows: ROW_ARRAY_TYPE[])`
+### Configuration (all required if using separately)
 
-<br />
+| Option      | Type   |
+| ----------- | ------ |
+| encodedFile | String |
+| filename    | String |
 
-#### `.addNewLine(count: number = 1)`
+### Methods
 
-<br />
+```javascript
+.getBlob()
+```
 
-#### `.addSection({ title, headers, rows, newLines }: SECTION_TYPE)`
+```javascript
+.getBlobUrl(csvData: Blob)
+```
 
-<br />
-
-#### `.getEncodedFile()`
-
-<br />
-
-#### `.getFilename()`
-
-<br />
-
-#### `changeRegex(passedRegex: RegExp)`
-
-<br />
-
-#### `.download()`
-
-<br />
+```javascript
+.download()
+```
